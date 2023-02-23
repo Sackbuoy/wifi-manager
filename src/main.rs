@@ -1,4 +1,5 @@
 mod connector;
+mod errors;
 mod scanner;
 
 use clap::Parser;
