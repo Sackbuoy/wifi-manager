@@ -10,7 +10,9 @@ wifi-rs = "0.2.2"
 network-interface = "0.1.5"
 clap = { version = "4.0.32", features = ["derive"] }
 simple-error = "0.2.3"
+default-net = "0.11.0"
 nix = "0.26.1"
+wifiscanner = "0.5.1"
 
 [profile.release]
 opt-level = 3

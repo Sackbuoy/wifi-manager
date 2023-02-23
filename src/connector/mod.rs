@@ -18,8 +18,10 @@ pub struct Args {
 #[derive(Subcommand, Debug, Clone)]
 pub enum Action {
     Scan {
-        #[arg(short, long)]
-        interface: String,
+        // I thought i could specify an interface but the
+        // package im using doesnt support it
+        // #[arg(short, long)]
+        // interface: String,
     },
     Connect {
         #[arg(default_value_t = get_default_interface().unwrap(), short, long)]

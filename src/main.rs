@@ -1,4 +1,5 @@
 mod connector;
+mod scanner;
 
 use clap::Parser;
 use connector::{Action, Args};
@@ -44,7 +45,17 @@ fn main() -> Result<(), Box<dyn Error>> {
     let args = Args::parse();
 
     match args.action {
-        Action::Scan { interface: _ } => Ok(()),
+        Action::Scan {} => {
+            match scanner::scan() {
+                Ok(networks) => {
+                    for network in networks {
+                        println!("{:?}", network)
+                    }
+                }
+                Err(e) => println!("Failed to scan: {:?}", e),
+            }
+            Ok(())
+        }
         Action::Connect {
             interface,
             network,
